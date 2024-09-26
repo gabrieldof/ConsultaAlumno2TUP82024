@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Interfaces;
+using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,15 +9,17 @@ namespace Web.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IUserService _userService;
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         [HttpGet]
 
-        public JsonResult Get()
+        public IActionResult Get()
         {
-            return new JsonResult(new List<User> {
-                                        new User { Id=1, Name= "Gabriel", LastName="Furrer", Password="1234", Email="hola@gmail.com" },
-                                        new User { Id=2, Name= "Carlos", LastName="Perez", Password="1234", Email="hola@gmail.com" },
-                                         new User { Id=3, Name= "Pedro", LastName="Rodriguez", Password="1234", Email="hola@gmail.com" }
-            });
+            return Ok(_userService.GetAll());
         }
 
     }
