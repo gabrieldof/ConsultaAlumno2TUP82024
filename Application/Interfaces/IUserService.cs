@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Models;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,10 @@ namespace Application.Interfaces
     public interface IUserService
     {
         public List<User> GetAll();
+        public User GetById(int id);
+
+        public User Add(UserForAddRequest userDtoRequest);
+
+        public User Update(int id, UserForUpdateRequest userDtoUpdateRequest);
     }
 }

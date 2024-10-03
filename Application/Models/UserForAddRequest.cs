@@ -6,28 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Application.Models
 {
-    public class User
+    public class UserForAddRequest
     {
-
-        public int Id { get; set; }
-
-        [Column(TypeName = "nvarchar(100)")]
         public string Name { get; set; }
-
         public string LastName { get; set; }
 
         public string Password { get; set; }
         public string Email { get; set; }
-
-        [Required]
-        [Column(TypeName = "nvarchar(100)")]
         public string UserName { get; set; }
 
-        [Column(TypeName = "nvarchar(20)")]
         public string UserType { get; set; }
-
-
     }
 }

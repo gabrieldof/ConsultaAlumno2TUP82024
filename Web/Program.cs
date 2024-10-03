@@ -1,5 +1,6 @@
 using Application.Interfaces;
 using Application.Services;
+using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +16,17 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptions => dbContextOptions.UseSqlite(
     builder.Configuration["ConnectionStrings:DBConnectionString"]));
+
+#region Repositories
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+#endregion
+
+
+#region Services
 builder.Services.AddScoped<IUserService, UserService>();
+#endregion
+
 
 
 var app = builder.Build();

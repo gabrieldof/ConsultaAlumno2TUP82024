@@ -20,9 +20,9 @@ namespace Infrastructure.Data
             // DataSeed: Agregamos unos datos iniciales
 
             modelBuilder.Entity<User>().HasData(
-                                        new User { Id = 1, Name = "Gabriel", LastName = "Furrer", Password = "1234", Email = "hola@gmail.com" },
-                                        new User { Id = 2, Name = "Carlos", LastName = "Perez", Password = "1234", Email = "hola@gmail.com" },
-                                         new User { Id = 3, Name = "Pedro", LastName = "Rodriguez", Password = "1234", Email = "hola@gmail.com" }
+                                        new User { Id = 1, Name = "Gabriel", LastName = "Furrer", Password = "1234", Email = "hola@gmail.com", UserName = "gfurrer", UserType = "professor" },
+                                        new User { Id = 2, Name = "Carlos", LastName = "Perez", Password = "1234", Email = "hola@gmail.com", UserName = "cperez", UserType = "student" },
+                                         new User { Id = 3, Name = "Pedro", LastName = "Rodriguez", Password = "1234", Email = "hola@gmail.com", UserName = "prodriguez", UserType = "professor" }
 
                 );
 
