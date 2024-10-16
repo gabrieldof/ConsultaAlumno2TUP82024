@@ -8,26 +8,26 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public UserRepository (ApplicationDbContext context)
+        public UserRepository (ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
 
 
-        public List<User> GetAll() 
-        { 
-            return _context.Users.ToList(); 
-        }
+        //public List<User> GetAll()
+        //{
+        //    return _context.Users.ToList();
+        //}
 
 
-        public User GetById(int id)
-        {
-            return _context.Users.FirstOrDefault(u => u.Id == id);
-        }
+        //public User GetById(int id)
+        //{
+        //    return _context.Users.FirstOrDefault(u => u.Id == id);
+        //}
 
         public User Add(User user)
         {

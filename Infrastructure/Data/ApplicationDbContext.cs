@@ -12,7 +12,7 @@ namespace Infrastructure.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         public DbSet<User> Users { get; set; }
-
+        public DbSet<Subject> Subjects { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -25,6 +25,13 @@ namespace Infrastructure.Data
                                          new User { Id = 3, Name = "Pedro", LastName = "Rodriguez", Password = "1234", Email = "hola@gmail.com", UserName = "prodriguez", UserType = "professor" }
 
                 );
+
+            modelBuilder.Entity<Subject>().HasData(
+                            new Subject { Id = 1, Name = "Programación", Quarter = "Primer" },
+                            new Subject { Id = 2, Name = "Base de datos", Quarter = "Primer" },
+                             new Subject { Id = 3, Name = "Análisis de Sistemas", Quarter = "Segundo" }
+
+    );
 
         }
     }

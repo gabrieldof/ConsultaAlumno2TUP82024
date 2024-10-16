@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : IBaseRepository<User>
     {
-        List<User> GetAll();
-        public User GetById(int id);
+        //List<User> GetAll();
+        //public User GetById(int id);
 
         public User Add(User user);
 
