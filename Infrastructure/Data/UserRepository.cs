@@ -12,7 +12,7 @@ namespace Infrastructure.Data
     {
         private readonly ApplicationDbContext _context;
 
-        public UserRepository (ApplicationDbContext context) : base(context)
+        public UserRepository(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
@@ -43,5 +43,13 @@ namespace Infrastructure.Data
             _context.SaveChanges();
             return user;
         }
-    }
+
+
+
+        public User? GetByUserName(string userName)
+        {
+            return _context.Users.FirstOrDefault(u => u.UserName == userName);
+        }
+
+    } 
 }

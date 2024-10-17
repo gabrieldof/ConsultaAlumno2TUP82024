@@ -17,5 +17,7 @@ namespace Domain.Interfaces
 
         public User Update(User user);
 
+        public User? GetUserByUserName(string userName);
+
     }
 }
